@@ -1,8 +1,5 @@
 # WingenderTFClass
-
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/WingenderTFClass`. To experiment with that code, run `bin/console` for an interactive prompt.
-
-TODO: Delete this and the text above, and describe your gem
+This gem allows to retrieve information for a transcription factor from Wingender's TFClass ontology.
 
 ## Installation
 
@@ -22,7 +19,19 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+```ruby
+require 'WingenderTFClass'
+class_recognizer = WingenderTFClass::ProteinFamilyRecognizers::HumanAtLevel[2]
+family_recognizer = WingenderTFClass::ProteinFamilyRecognizers::HumanAtLevel[3]
+class_recognizer.subfamilies_by_uniprot_id('RXRA_HUMAN')
+# => [Nuclear receptors with C4 zinc fingers{2.1}]
+family_recognizer.subfamilies_by_uniprot_id('RXRA_HUMAN')
+# => [RXR-related receptors (NR2){2.1.3}]
+
+subfamily_mouse_recognizer = WingenderTFClass::ProteinFamilyRecognizers::MouseAtLevel[4]
+subfamily_mouse_recognizer.subfamilies_by_uniprot_id('RXRA_MOUSE')
+# => [Retinoid X receptors (NR2B){2.1.3.1}]
+```
 
 ## Development
 
