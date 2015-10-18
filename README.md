@@ -1,5 +1,14 @@
 # WingenderTFClass
-This gem allows to retrieve information for a transcription factor from Wingender's TFClass ontology.
+This gem allows to retrieve information for a transcription factor from Wingender's TFClass ontology. Necessary data come with gem but can be updated using the rake task in `rake/WingenderClassification.rake`.
+While current version works quite nice, API is going to be changed. Current version is quite preliminary. So please lock used in your app version of a gem via Gemfile.
+## Posibly sometimes these changes will be made (ToDo):
+* Use third-party *.obo (ontology format) reader.
+* Support alt_id and other tags
+* More convenient data structure for an ontology.
+* Less duplication in classes for obtaining family by UniprotID/UniprotAC/motif/somewhat else
+* Method rename
+* List monad for multiple TF classes of multiple TF motifs (just as an experiment)
+* Make usage of rake task to update data more simple in use
 
 ## Installation
 
