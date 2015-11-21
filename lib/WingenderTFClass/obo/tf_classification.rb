@@ -1,7 +1,20 @@
 require_relative 'term'
+require_relative '../local_paths'
 module WingenderTFClass
   module OBO
     class TFClassification
+
+      def self.by_species(species)
+        case species.to_s.downcase
+        when 'human'
+          OBO::TFClassification.from_file(FilePaths::TFOntologyHuman)
+        when 'mouse'
+          OBO::TFClassification.from_file(FilePaths::TFOntologyMouse)
+        else
+          raise "Unknown species `#{species}`"
+        end
+      end
+
       # terms by ids
       def initialize()
         @terms_by_id = {}
